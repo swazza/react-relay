@@ -10,6 +10,9 @@
     "relay": "relay-compiler --src ./src --schema path/schema.graphql --watch"
   },
   "dependencies": {
+    "express": "^4.15.3",
+    "express-graphql": "^0.6.6",
+    "graphql": "^0.10.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-relay": "^1.1.0"
