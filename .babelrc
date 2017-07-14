@@ -1,0 +1,20 @@
+{
+  "presets": [["env", {"modules": false}], "stage-2", "react", "flow"],
+  "env": {
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel",
+        "relay",
+        "transform-object-rest-spread"
+      ]
+    },
+
+    "production": {
+      "plugins": [
+        "transform-react-jsx",
+        "relay",
+        "transform-object-rest-spread"
+      ]
+    }
+  }
+}
