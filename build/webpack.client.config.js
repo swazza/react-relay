@@ -12,20 +12,7 @@ let devEntries = [
   "webpack-dev-server/client?http://localhost:24000/",
   "webpack/hot/only-dev-server"
 ];
-let vendorEntries1 = [
-  "react",
-  "react-dom",
-  "react-router",
-  "react-router-dom",
-  "history",
-  "redux",
-  "react-redux",
-  "react-router-redux",
-  "redux-saga"
-];
-
-let vendorEntries2 = ["aphrodite", "graphql-tag", "graphql-anywhere", "react-apollo", "react-motion"];
-
+let vendorEntries = ["react", "react-dom"];
 let appEntries = [path.resolve(__dirname, "../src/client", "index.js")];
 
 module.exports = function(env) {
@@ -35,8 +22,7 @@ module.exports = function(env) {
     entries.dev = devEntries;
   }
 
-  entries.vendor1 = vendorEntries1;
-  entries.vendor2 = vendorEntries2;
+  entries.vendor = vendorEntries;
   entries.app = appEntries;
 
   let clientConfig = {
@@ -69,7 +55,7 @@ module.exports = function(env) {
       }),
       env.dev ? new webpack.HotModuleReplacementPlugin() : noop(),
       new webpack.optimize.CommonsChunkPlugin({
-        name: ["vendor1", "vendor2"],
+        name: ["vendor"],
         minChunks: Infinity
       }),
       new webpack.EnvironmentPlugin(appConfig),
